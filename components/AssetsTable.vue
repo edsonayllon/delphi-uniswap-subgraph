@@ -80,6 +80,7 @@ export default {
       : Math.abs(Number(value));
     },
     setToken(token) {
+      this.$emit('update-token', token.split('-')[0])
       console.log(token.split('-')[0])
     }
   },

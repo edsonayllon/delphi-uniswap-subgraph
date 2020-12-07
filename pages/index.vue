@@ -27,11 +27,11 @@
         </p>
         <!-- Replace with your content -->
         <div class="px-4 py-6 sm:px-0">
-          <Graph :token="token" />
+          <GraphContainer :token="token"/>
           <div
             class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
           >
-            <AssetsTable :date="latestHour"/>
+            <AssetsTable :date="latestHour"  @update-token = "updateToken"  />
           </div>
         </div>
         <!-- /End replace -->
@@ -72,6 +72,9 @@ export default {
       : Math.abs(Number(value)) >= 1.0e+3
       ? `${(Math.abs(Number(value)) / 1.0e+3).toFixed(2)} K`
       : Math.abs(Number(value));
+    },
+    updateToken(token) {
+      this.token = token
     }
   },
   apollo: {
