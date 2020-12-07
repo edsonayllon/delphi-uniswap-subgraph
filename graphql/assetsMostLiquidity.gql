@@ -1,0 +1,11 @@
+query ($date: Int) {
+  tokenDayDatas(where:{date: $date}, first: 5, orderBy: totalLiquidityUSD, orderDirection:desc) {
+    id,
+    date,
+    token {
+   		name
+    	symbol
+  	}
+    totalLiquidityUSD
+  }
+}
