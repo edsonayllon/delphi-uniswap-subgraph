@@ -88,7 +88,7 @@ export default {
     tokenDayDatas: {
       query: gql`
         query ($date: Int) {
-          tokenDayDatas(where:{date: $date}, first: 5, orderBy: totalLiquidityUSD, orderDirection:desc) {
+          tokenDayDatas(where:{date: $date}, first: 5, orderBy: dailyVolumeUSD, orderDirection:desc) {
             id,
             date,
             token {

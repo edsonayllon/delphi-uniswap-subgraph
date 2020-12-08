@@ -27,6 +27,7 @@
         </p>
         <!-- Replace with your content -->
         <div class="px-4 py-6 sm:px-0">
+          {{ latestHour }}
           <GraphContainer :token="token"/>
           <div
             class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
@@ -50,9 +51,9 @@ export default {
   name: "index",
   data () {
     return {
-      latestHour: new Date(new Date().setHours(19, 0, 0, 0)) > new Date() 
-        ? (new Date().setHours(19, 0, 0, 0) / 1000) - 86400
-        : new Date().setHours(19, 0, 0, 0) / 1000,
+      latestHour: new Date(new Date().setUTCHours(0, 0, 0, 0)) > new Date()
+        ? (new Date().setUTCHours(0, 0, 0, 0) / 1000) - 86400
+        : new Date().setUTCHours(0, 0, 0, 0) / 1000,
       token: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'
     }
   },
